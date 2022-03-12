@@ -10,3 +10,5 @@ console.log(urlData.path)
 console.log(urlData.host);
 console.log(urlData.query)
 let user = urlData.query;
+console.log("name is "+user.name)
+console.log("age is "+user.age);
