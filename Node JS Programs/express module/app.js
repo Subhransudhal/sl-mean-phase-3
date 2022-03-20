@@ -67,7 +67,7 @@ app.post("/checkuser",(req,res)=>{
     }
 })
 
-app.get("/signuppageopen",(req,res)=>{
+ app.get("/signuppageopen",(req,res)=>{
     res.sendFile("\\signup.html",{root:__dirname});
 })
 
