@@ -1,0 +1,42 @@
+<div>
+    <h2>Add Product Details</h2>
+    <form [formGroup] ="productRef">
+        <label>PID</label>
+        <input type="number" formControlName="pid"/><br/>
+        <label>pname</label>
+        <input type="text" formControlName="pname"/><br/>
+        <label>price</label>
+        <input type="number" formControlName="price"/><br/>
+        <label>Image URL</label>
+        <input type="url" formControlName="url"/><br/>
+        <input type="button" value ="Add Product" (click)="storeProduct()"/>
+        <input type ="reset" value ="reset"/>
+    </form>
+    <span style="color: tomato;">{{storeMsg}}</span>
+    
+    <br/>
+    <div *ngFor="let product of products" style="display: inline-block;">
+        <img src={{product.url}} width="200px" height="200px"/>
+        <span>{{product.pname}} {{product.price}}</span><br/>
+        <div style="align-items: center;">
+            <input type ="button" value ="delete" (click)="DeleteProduct(product.pid)"/>
+            <input type ="button" value ="update"(click)="updateProduct(product)"/>
+        </div>
+ </div>
+       <span style="color:red">{{deletemsg}}</span>
+       <hr/>
+       <div *ngIf ="flag">
+           <h2>update the record</h2>
+           <form>
+               <label>PID</label>
+               <input type ="number" name ="pid"[(ngModel)]="pid" readonly/><br/>
+               <label>Price</label>
+               <input type ="number" name ="price"[(ngModel)]="price"/><br/>
+               <label>Image URL</label>
+               <input type ="url" name = "url"[(ngModel)]="url"/><br/>
+               <input type ="button" value="update record" (click)="updateRecordFromDb()"/>
+               <input type ="reset" value="reset"/>
+           </form>
+       </div> 
+   </div>
+   
